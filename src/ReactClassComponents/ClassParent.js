@@ -50,10 +50,10 @@ class ClassParent extends React.Component {
                         type="button"
                         onClick={this.increment}
                     >
-                        Increment
+                        Increment Count
                     </button>
                     <button className="border px-5 rounded-sm bg-slate-100" type="button" onClick={this.decrement}>
-                        Decrement
+                        Decrement Count
                     </button>
                     <button
                         className="border px-5 rounded-sm bg-slate-100"
