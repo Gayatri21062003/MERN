@@ -6,10 +6,18 @@ function ChildFormOne() {
 
     return (
         <div>
+            
             <label className="flex justify-center mt-3 mb-3 font-bold text-xl">Child Form One</label>
             <div className="border border-gray-700 mx-[15%] py-5 rounded-md my-5 px-10">
                 <div>
                     <input className="" name="firstname" {...register("firstname")} placeholder="Enter First Name" />
+
+                    <input
+                        className="mx-3 text-center"
+                        name="middlename"
+                        {...register("middlename")}
+                        placeholder="Enter middle Name"
+                    />
 
                     <input
                         className="mx-3 text-center"

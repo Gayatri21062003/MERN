@@ -2,9 +2,12 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
+import {Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 export default function ReactHookForm() {
     const [users, setUsers] = React.useState([]);
+    const navigate = useNavigate();
 
     const errorObject = yup.object().shape({
         firstname: yup
@@ -52,69 +55,83 @@ export default function ReactHookForm() {
     }
 
     return (
-        <div className="">
-            <div className="grid justify-items-center">
-                <label className="text-xl my-5 font-bold tracking-wide border border-teal-900 px-10 rounded-md">
-                    React Hook Form
-                </label>
+        <div>
+            <div className="flex mx-2 my-2">
+                <Button
+                    type="button"
+                    color="inherit"
+                    variant="contained"
+                    onClick={() => {
+                        navigate("/");
+                    }}
+                >
+                    Back
+                </Button>
             </div>
-            <form onSubmit={handleSubmit(onSubmitData)}>
-                <div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="firstname"
-                            {...register("firstname")}
-                            placeholder="First Name"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="middlename"
-                            {...register("middlename")}
-                            placeholder="Middle Name"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="lastname"
-                            {...register("lastname")}
-                            placeholder="Last Name"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="address"
-                            {...register("address")}
-                            placeholder="Address"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="mobilenumber"
-                            {...register("mobilenumber")}
-                            placeholder="Mobile Number"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <input
-                            className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
-                            name="aadharnumber"
-                            {...register("aadharnumber")}
-                            placeholder="Aadhar Number"
-                        />
-                    </div>
-                    <div className="flex justify-center">
-                        <button type="submit" className="px-10 bg-slate-600 rounded-md border border-black">
-                            Submit
-                        </button>
-                    </div>
+            <div className="border border-black mx-60 my-3 p-4 rounded-md bg-slate-50">
+                <div className="grid justify-items-center">
+                    <label className="text-xl my-5 font-bold tracking-wide border border-teal-900 px-10 rounded-md">
+                        React Hook Form
+                    </label>
                 </div>
-            </form>
+                <form onSubmit={handleSubmit(onSubmitData)}>
+                    <div>
+                        <div className="flex justify-center ">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200 "
+                                name="firstname"
+                                {...register("firstname")}
+                                placeholder="First Name"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
+                                name="middlename"
+                                {...register("middlename")}
+                                placeholder="Middle Name"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
+                                name="lastname"
+                                {...register("lastname")}
+                                placeholder="Last Name"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
+                                name="address"
+                                {...register("address")}
+                                placeholder="Address"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
+                                name="mobilenumber"
+                                {...register("mobilenumber")}
+                                placeholder="Mobile Number"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <input
+                                className="my-5  w-[17%] mx-5 shadow shadow-rose-200"
+                                name="aadharnumber"
+                                {...register("aadharnumber")}
+                                placeholder="Aadhar Number"
+                            />
+                        </div>
+                        <div className="flex justify-center">
+                            <button type="submit" className="px-10 bg-slate-600 rounded-md border border-black">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

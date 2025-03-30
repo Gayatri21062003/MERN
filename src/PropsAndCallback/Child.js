@@ -13,22 +13,26 @@ export default function Child(props) {
     }
     return (
         <div>
-            <div>Child Component</div>
-            <div className="grid sm:grid-cols-6 gap-8 px-10 my-3">
-                <CommonButton
-                    label="Increment"
-                    type="button"
-                    onClick={() => {
-                        handleCallback();
-                    }}
-                />
-                <CommonButton
-                    label="Decrement"
-                    type="button"
-                    onClick={() => {
-                        handleCallback1();
-                    }}
-                />
+            <div className=" font-medium my-2">Child Component</div>
+            <div className="flex justify-center my-3 gap-3">
+                <div>
+                    <CommonButton
+                        label="Increment"
+                        type="button"
+                        onClick={() => {
+                            handleCallback();
+                        }}
+                    />
+                </div>
+                <div>
+                    <CommonButton
+                        label="Decrement"
+                        type="button"
+                        onClick={() => {
+                            handleCallback1();
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );

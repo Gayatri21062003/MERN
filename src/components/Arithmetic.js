@@ -2,6 +2,7 @@ import {useState} from "react";
 import React from "react";
 import {CommonButton} from "../CommonComponents/CommonButton";
 import {useNavigate} from "react-router-dom";
+import {Button, TextField} from "@mui/material";
 
 export default function Arithmetic() {
     const navigate = useNavigate();
@@ -72,59 +73,58 @@ export default function Arithmetic() {
 
     return (
         <div>
-            <div
-                style={{
-                    fontWeight: "bold",
-                    fontSize: "15px",
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                }}
-            >
-                State Variables
-            </div>
+            {/* <div className="font-semibold text-xl my-3">State Variables</div> */}
 
-            <div className="grid sm:grid-cols-5 gap-5  mx-20  my-5">
-                <CommonButton
-                    label="Go Home"
+            <div className="flex mx-3 my-3">
+                <Button
+                    color="inherit"
+                    variant="contained"
                     type="button"
                     onClick={() => {
-                        goHome();
+                        navigate("/");
                     }}
-                />
+                >
+                    Back
+                </Button>
             </div>
-           
-            <input className="my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md"
-            //   name={`discount${index}`}
-            />
-          
 
-            
+            <fieldset className="border border-black rounded-lg mx-40 my-5 p-3 ">
+                <legend className="text-xl font-semibold">State Variables</legend>
+                <div className="my-5 font-medium">Count is : {count}</div>
+                <div className="flex justify-center">
+                    <div className="mx-3">
+                        <div className="font-semibold">{string}</div>
+                    </div>
+                    <div className="flex justify-center mx-3">
+                        <div className="font-semibold">{object?.name}</div>
+                        <div className="font-semibold">{object?.age}</div>
+                    </div>
+                </div>
 
-            <div>{count}</div>
-            <div>{string}</div>
-            <div>{object?.name + " " + object?.age}</div>
+                {/* <div>{object?.name + " " + object?.age}</div> */}
 
-            {boolean === true ? <div>Boolean Value is true..!</div> : null}
-            {/* {boolean === true ? <div>Boolean Value is true..!</div> : ""} */}
-            {/* {boolean === true ? <div>Boolean Value is true..!</div> :<div>Boolean Value is false..!</div>} */}
+                {boolean === true ? <div className="text-xl font-medium">Boolean Value is true..!</div> : null}
+                {/* {boolean === true ? <div>Boolean Value is true..!</div> : ""} */}
+                {/* {boolean === true ? <div>Boolean Value is true..!</div> :<div>Boolean Value is false..!</div>} */}
 
-            <div>
-                {array.map((item, index) => {
-                    return (
-                        <div>
-                            <div>{item}</div>
-                            <input
-                                className="my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md"
-                                type="text"
-                                name={`Amount${index}`}
-                            />
-                        </div>
-                    );
-                })}
-            </div>
-            <br />
-            <br />
-            <div className="grid sm:grid-cols-3 gap-8 px-10">
+                <div>
+                    {array.map((item, index) => {
+                        return (
+                            <div>
+                                <div>{item}</div>
+                                <TextField
+                                    className="my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md"
+                                    // type="text"
+                                    label="Amount"
+                                    name={`Amount${index}`}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </fieldset>
+
+            <div className="grid sm:grid-cols-3 gap-8 px-10 w-[50%] mx-96 my-10">
                 <CommonButton
                     label="Increment"
                     type="button"

@@ -28,17 +28,20 @@ function ChildFormThree() {
                 return (
                     <div className="border border-gray-700 mx-[15%] py-5 grid grid-cols-5  rounded-md my-5  px-10">
                         <input
-                            name={"edudetails[${fieldindex}].previouseducation"}
+                            name={`edudetails[${fieldindex}].previouseducation`}
+                            {...register(`edudetails[${fieldindex}].previouseducation`)}
                             placeholder="Previous Education"
                             className="mx-3 text-center"
                         />
                         <input
-                            name={"educationdetails[${fieldindex}].passingyear"}
+                            name={`educationdetails[${fieldindex}].passingyear`}
+                            {...register(`edudetails[${fieldindex}].passingyear`)}
                             placeholder="Passing Year"
                             className="mx-3 text-center"
                         />
                         <input
-                            name={"educationdetails[${fieldindex}].place"}
+                            name={`educationdetails[${fieldindex}].place`}
+                            {...register(`edudetails[${fieldindex}].place`)}
                             placeholder="Place"
                             className="mx-3 text-center"
                         />

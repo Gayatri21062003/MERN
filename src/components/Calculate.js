@@ -1,70 +1,79 @@
-import { useState } from "react";
+import {useState} from "react";
 import React from "react";
-import { CommonButton } from "../CommonComponents/CommonButton";
-import { useNavigate } from "react-router-dom";
+import {CommonButton} from "../CommonComponents/CommonButton";
+import {useNavigate} from "react-router-dom";
+import {Button, TextField} from "@mui/material";
 
-export default function Calculate()
-{
-    const navigate=useNavigate();
-    function goHome()
-    {
+export default function Calculate() {
+    const navigate = useNavigate();
+    function goHome() {
         navigate("/");
     }
-    function goBack()
-    {
+    function goBack() {
         navigate(-1);
     }
 
-    function ReadAmount()
-    {
-        var ra=document.getElementById("rate").value;
+    function ReadAmount() {
+        var ra = document.getElementById("rate").value;
 
-        var qa=document.getElementById("quantity").value;
+        var qa = document.getElementById("quantity").value;
 
         var cal = ra * qa;
 
         document.getElementById("amount").value = cal;
-
     }
 
-        return(
-            <div>
-                <label for="rate">Rate :</label>
-                <input className="text-center border border-slate-400 rounded-md" type="number" id="rate" />
-                <label for="quantity">Quantity :</label>
-                <input className="text-center border border-slate-400 rounded-md" type="number" id="quantity"/>
-                <label for="amount">Amount</label>
-                <input className="text-center border border-slate-400 rounded-md" type="number" id="amount" readOnly/>     
-                <CommonButton
-                    label="Amount"
+    return (
+        <div>
+            <div className=" flex mx-2 my-2 gap-2 ">
+                <Button
                     type="button"
-                    onClick={()=>{
-                        ReadAmount();
+                    variant="contained"
+                    color="inherit"
+                    onClick={() => {
+                        navigate(-1);
                     }}
-                />  
+                >
+                    Back
+                </Button>
+                <Button
+                    type="button"
+                    variant="contained"
+                    color="inherit"
+                    onClick={() => {
+                        navigate("/");
+                    }}
+                >
+                    Home
+                </Button>
+            </div>
 
-                <br/>
-                <br/>
+            <div className="border border-black p-2 mx-60 rounded-lg">
+                <p className="font-medium text-xl">Calculate Amount</p>
+                <div className="p-3">
+                    <TextField type="number" id="rate" label="Rate" />
+                </div>
 
-                <div className="grid grid-cols-2 gap-10 px-10">
-                    <CommonButton
-                        label="Go Home"
+                <div className="p-3">
+                    <TextField type="number" id="quantity" label="Quantity" />
+                </div>
+
+                <div className="p-3">
+                    <TextField type="text" id="amount" readOnly />
+                </div>
+                <div>
+                    <Button
                         type="button"
-                        onClick={()=>{
-                            goHome();
+                        color="info"
+                        variant="contained"
+                        onClick={() => {
+                            ReadAmount();
                         }}
-                    />
-
-                    <CommonButton
-                    label="Go Back"
-                    type="button"
-                    onClick={()=>{
-                        goBack();
-                    }}
-                    /> 
-
-                </div>     
-            
+                    >
+                        Amount
+                    </Button>
+                </div>
+            </div>
         </div>
-    )
+    );
 }

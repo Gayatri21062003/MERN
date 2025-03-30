@@ -7,8 +7,8 @@ function Home() {
 
     return (
         <div>
-            <div className="text-center font-bold">Home</div>
-            <div className="grid grid-cols-4 gap-10 px-10 my-5">
+            <div className="text-center font-semibold text-xl my-2">Home</div>
+            <div className="grid grid-cols-4 gap-10 px-10 my-5 h-9">
                 <CommonButton
                     label="About"
                     type="button"
@@ -41,12 +41,94 @@ function Home() {
                     }}
                 />
             </div>
-            <div className="grid grid-cols-4 gap-10 px-10">
+            <div className="grid grid-cols-4 gap-10 px-10 my-5 h-9">
                 <CommonButton
                     label="Registration Form"
                     type="button"
                     onClick={() => {
                         navigate("/registrationform");
+                    }}
+                />
+
+                <CommonButton
+                    label="State Variables"
+                    type="button"
+                    onClick={() => {
+                        navigate("/statevariables");
+                    }}
+                />
+
+                <CommonButton
+                    label="Arithmetic"
+                    type="button"
+                    onClick={() => {
+                        navigate("/arithmetic");
+                    }}
+                />
+
+                <CommonButton
+                    label="Props And CallBack"
+                    type="button"
+                    onClick={() => {
+                        navigate("/parent");
+                    }}
+                />
+            </div>
+            <div className="grid grid-cols-4 gap-10 px-10 my-5 h-9">
+                <CommonButton
+                    label="Context API"
+                    type="button"
+                    onClick={() => {
+                        navigate("/contextparent");
+                    }}
+                />
+
+                <CommonButton
+                    label="ClassParent"
+                    type="button"
+                    onClick={() => {
+                        navigate("/classparent");
+                    }}
+                />
+
+                <CommonButton
+                    label="Use Reducer"
+                    type="button"
+                    onClick={() => {
+                        navigate("/usereducer");
+                    }}
+                />
+
+                <CommonButton
+                    label="Redux"
+                    type="button"
+                    onClick={() => {
+                        navigate("/reduxhome");
+                    }}
+                />
+            </div>
+
+            <div className="grid grid-cols-4 gap-10 px-10 my-5 h-9">
+                <CommonButton
+                    label="Form1 Demo"
+                    type="button"
+                    onClick={() => {
+                        navigate("/form1demo");
+                    }}
+                />
+                <CommonButton
+                    label="Form All Data"
+                    type="button"
+                    onClick={() => {
+                        navigate("/formalldata");
+                    }}
+                />
+
+                <CommonButton
+                    label="Parent Form"
+                    type="button"
+                    onClick={() => {
+                        navigate("/parentform");
                     }}
                 />
             </div>

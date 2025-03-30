@@ -3,6 +3,7 @@ import React from "react";
 import Calculate from "./Calculate";
 import {useLocation, useNavigate} from "react-router-dom";
 import {CommonButton} from "../CommonComponents/CommonButton";
+import {Button, TextField} from "@mui/material";
 
 export default function StateVariables() {
     const navigate = useNavigate();
@@ -96,56 +97,65 @@ export default function StateVariables() {
 
     return (
         <div>
-            <div className="flex justify-center  font-bold" >
-                State Variables
-            </div>
-            <div className="grid sm:grid-cols-6 mx-5 my-5 gap-5 px-10">
-                <CommonButton
-                    label="Calculate"
-                    type="button"
-                    onClick={() => {
-                        navigate("/calculate");
-                    }}
-                />
-                <CommonButton
-                    label="Go Home"
+            <div className="flex mx-2 my-2 gap-3">
+                <Button
                     type="button"
                     onClick={() => {
                         navigate("/");
                     }}
-                />
+                    variant="contained"
+                    color="inherit"
+                >
+                    Back
+                </Button>
+                <Button
+                    type="button"
+                    onClick={() => {
+                        navigate("/calculate");
+                    }}
+                    variant="contained"
+                    color="inherit"
+                >
+                    Calculate
+                </Button>
             </div>
+            <fieldset className="border border-black rounded-lg mx-40 my-5 p-3 ">
+                <legend className="text-xl font-semibold p-1">State Variables</legend>
+                <div className="my-5 font-medium">Count is : {count}</div>
+                <div className="flex justify-center">
+                    <div className="mx-3">
+                        <div className="font-semibold">{string}</div>
+                    </div>
+                    <div className="flex justify-center mx-3">
+                        <div className="font-semibold">{object?.name}</div>
+                        <div className="font-semibold">{object?.age}</div>
+                    </div>
+                </div>
 
-            <div className="my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md">
-            <input
-            //   name={`discount${index}`}
-            />
-            </div>
+                {/* <div>{object?.name + " " + object?.age}</div> */}
 
-            <div>{count}</div>
-            <div>{string}</div>
-            
+                {boolean === true ? <div className="text-xl font-medium">Boolean Value is true..!</div> : null}
+                {/* {boolean === true ? <div>Boolean Value is true..!</div> : ""} */}
+                {/* {boolean === true ? <div>Boolean Value is true..!</div> :<div>Boolean Value is false..!</div>} */}
 
-            {boolean === true ? <div>Boolean Value is true..!</div> : null}
-            {/* {boolean === true ? <div>Boolean Value is true..!</div> : ""} */}
-            {/* {boolean === true ? <div>Boolean Value is true..!</div> :<div>Boolean Value is false..!</div>} */}
+                <div>
+                    {array.map((item, index) => {
+                        return (
+                            <div>
+                                <div>{item}</div>
+                                <TextField
+                                    className="my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md"
+                                    // type="text"
+                                    label="Amount"
+                                    name={`Amount${index}`}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </fieldset>
 
-            <div>
-                {array.map((item, index) => {
-                    return (
-                        <div>
-                            <div>{item}</div>
-                            <input
-                                className=" my-5 border border-gray-700 w-[17%] mx-5 text-center  rounded-md"
-                                type="text"
-                                name={`Amount${index}`}
-                            />
-                        </div>
-                    );
-                })}
-            </div>
-
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3  gap-5  mx-20  my-5 ">
+            <div className=" flex justify-center gap-4 h-8">
                 <CommonButton
                     label="Increment"
                     type="button"
@@ -168,10 +178,6 @@ export default function StateVariables() {
                     }}
                 />
             </div>
-
-            <br />
-            <br />
-            <div className="text-center justify-center font-bold"></div>
         </div>
     );
 }

@@ -14,14 +14,16 @@ function About() {
     }
     return (
         <div>
-            <div className="text-center font-bold">About</div>
-            <CommonButton
-                label="   Go Home   "
-                type="button"
-                onClick={() => {
-                    Navigate("/");
-                }}
-            />
+            <div className="text-center font-semibold text-xl">About</div>
+            <div className="flex mx-2 my-2">
+                <CommonButton
+                    label="BACK"
+                    type="button"
+                    onClick={() => {
+                        Navigate("/");
+                    }}
+                />
+            </div>
         </div>
     );
 }

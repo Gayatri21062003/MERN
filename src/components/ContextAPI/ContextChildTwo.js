@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {FirstContext} from "./ContextParent";
 import {CommonButton} from "../../CommonComponents/CommonButton";
 import {useNavigate} from "react-router-dom";
+import {Button} from "@mui/material";
 
 export default function ContextChildTwo() {
     const navigate = useNavigate();
@@ -13,32 +14,28 @@ export default function ContextChildTwo() {
 
     return (
         <div>
-            <div>Context Child Two</div>
+            <div className="font-medium my-3">Context Child Two</div>
 
-            <div className="grid sm:grid-cols-3 gap-5 px-10 my-5">
-                <CommonButton
-                    label="Set Name"
+            <div className=" flex gap-4 justify-center my-5">
+                <Button
                     type="button"
+                    variant="outlined"
                     onClick={() => {
-                        setName(name + "Gayatri");
+                        setName(name + "Gayatri ");
                     }}
-                />
+                >
+                    Set Name Here
+                </Button>
 
-                <CommonButton
-                    label="Context Parent Array"
+                <Button
                     type="button"
+                    variant="outlined"
                     onClick={() => {
                         navigate("/contextparentarray");
                     }}
-                />
-
-                <CommonButton
-                    label="Go Home"
-                    type="button"
-                    onClick={() => {
-                        goHome();
-                    }}
-                />
+                >
+                    Context parent Array
+                </Button>
             </div>
         </div>
     );
